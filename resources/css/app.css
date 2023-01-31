@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.status-data-entry {
+    background-color: rgb(236 252 203);
+}
+
+.status-approval {
+    background-color: rgb(220 252 231);
+}
+
+.status-shipping-line-release{
+    background-color: rgb(254 243 199);
+}
+
+.status-port-clearance {
+    background-color: rgb(245 208 254);
+}
+
+.status-haulage {
+    background-color: rgb(254 226 226);
+}
+
+.progress-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    z-index: -1;
+}
+
+.progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+}
+
+.progress-step::after {
+    content:attr(data-title);
+    position: absolute;
+    top: 120%;
+    width: 13rem;
+    text-align: center;
+}
